@@ -9,10 +9,10 @@ import java.util.List;
 public class Recipe {
     @Id
     @GeneratedValue
-    Long id;
-    String name;
-    String ingredients;
-    String instructions;
+    private Long id;
+    private String name;
+    private String ingredients;
+    private String instructions;
 
     public Recipe() {
     }
