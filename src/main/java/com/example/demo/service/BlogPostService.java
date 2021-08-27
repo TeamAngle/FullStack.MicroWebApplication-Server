@@ -17,10 +17,7 @@ public class BlogPostService {
     @Autowired
     TagRepository tagRepository;
 
-    public BlogPost create(BlogPost blogPost){
-        BlogPost retVal = new BlogPost(blogPost);
-        return repository.save(blogPost);
-    }
+    public BlogPost create(BlogPost blogPost){ return repository.save(blogPost); }
 
     public BlogPost read(Long id){
         BlogPost blogPost = repository.findById(id).get();
