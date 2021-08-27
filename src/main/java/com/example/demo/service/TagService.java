@@ -21,7 +21,8 @@ public class TagService {
 
     public Tag read(Long id){
         Tag tag = repository.findById(id).get();
-//        tag.setBlogPosts(blogPostRepository.findWithTag(id));
+        List<Long> blogPostIds = repository.findBlogIdsByTag(tag.getId());
+        tag.setBlogPosts(convertIdToBlog(blogPostIds));
         return tag;
     }
 
