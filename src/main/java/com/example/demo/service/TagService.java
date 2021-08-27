@@ -21,7 +21,7 @@ public class TagService {
 
     public Tag read(Long id){
         Tag tag = repository.findById(id).get();
-        tag.setBlogPosts(blogPostRepository.findByTag(id));
+//        tag.setBlogPosts(blogPostRepository.findWithTag(id));
         return tag;
     }
 
@@ -30,9 +30,19 @@ public class TagService {
         List<Tag> result = new ArrayList<>();
         tagIterable.forEach(result::add);
         for(Tag tag : result) {
-            tag.setBlogPosts(blogPostRepository.findByTag(tag.getId()));
+            List<Long> blogPostIds = repository.findBlogIdsByTag(tag.getId());
+            tag.setBlogPosts(convertIdToBlog(blogPostIds));
         }
         return result;
+    }
+
+    public List<BlogPost> convertIdToBlog(List<Long> blogPostIds) {
+        List<BlogPost> blogPostList = new ArrayList<>();
+        for(Long id : blogPostIds) {
+            BlogPost blogPost = blogPostRepository.findById(id).get();
+            blogPostList.add(blogPost);
+        }
+        return blogPostList;
     }
 
     public Tag update(Long id, Tag newTag){

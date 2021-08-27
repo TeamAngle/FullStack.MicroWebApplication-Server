@@ -9,7 +9,11 @@ public class Tag {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     String name;
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany
+    @JoinTable(
+            joinColumns = @JoinColumn (name = "tag_id"),
+            inverseJoinColumns = @JoinColumn (name = "blog_posts_id")
+    )
     List<BlogPost> blogPosts;
 
     public Tag() {

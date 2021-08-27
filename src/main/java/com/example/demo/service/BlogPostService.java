@@ -21,7 +21,7 @@ public class BlogPostService {
 
     public BlogPost read(Long id){
         BlogPost blogPost = repository.findById(id).get();
-        blogPost.setTags(tagRepository.findByBlogPost(id));
+//        blogPost.setTags(tagRepository.findByBlogPost(id));
         return blogPost;
     }
 
@@ -30,7 +30,7 @@ public class BlogPostService {
         List<BlogPost> result = new ArrayList<>();
         blogPostsIterable.forEach(result::add);
         for(BlogPost blogPost : result) {
-            blogPost.setTags(tagRepository.findByBlogPost(blogPost.getId()));
+            blogPost.setTags(repository.findWithTag(blogPost.getId()));
         }
         return result;
     }
