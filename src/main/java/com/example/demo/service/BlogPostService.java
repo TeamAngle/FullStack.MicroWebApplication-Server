@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.models.BlogPost;
-import com.example.demo.models.User;
+import com.example.demo.models.Tag;
 import com.example.demo.repository.BlogPostRepository;
 import com.example.demo.repository.TagRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +17,12 @@ public class BlogPostService {
     @Autowired
     TagRepository tagRepository;
 
-    public BlogPost create(BlogPost blogPost){return repository.save(blogPost);}
+    public BlogPost create(BlogPost blogPost){ return repository.save(blogPost); }
 
     public BlogPost read(Long id){
         BlogPost blogPost = repository.findById(id).get();
-        blogPost.setTags(tagRepository.findByBlogPost(id));
+        List<Long> tagIds = repository.findTagIdsByBlog(blogPost.getId());
+        blogPost.setTags(convertIdToTag(tagIds));
         return blogPost;
     }
 
@@ -30,9 +31,19 @@ public class BlogPostService {
         List<BlogPost> result = new ArrayList<>();
         blogPostsIterable.forEach(result::add);
         for(BlogPost blogPost : result) {
-            blogPost.setTags(tagRepository.findByBlogPost(blogPost.getId()));
+            List<Long> tagIds = repository.findTagIdsByBlog(blogPost.getId());
+            blogPost.setTags(convertIdToTag(tagIds));
         }
         return result;
+    }
+
+    public List<Tag> convertIdToTag(List<Long> blogPostIds) {
+        List<Tag> tagList = new ArrayList<>();
+        for(Long id : blogPostIds) {
+            Tag tag = tagRepository.findById(id).get();
+            tagList.add(tag);
+        }
+        return tagList;
     }
 
     public BlogPost update(Long id, BlogPost newBlogPost){

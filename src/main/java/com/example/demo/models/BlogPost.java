@@ -19,7 +19,8 @@ public class BlogPost {
     @ManyToOne(cascade = CascadeType.ALL)
     @JsonIgnore
     private User user;
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany
+    @JsonIgnore
     private List<Tag> tags;
 
     public BlogPost() {
