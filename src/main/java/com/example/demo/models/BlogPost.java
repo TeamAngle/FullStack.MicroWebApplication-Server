@@ -16,7 +16,7 @@ public class BlogPost {
     private String imageUrl;
     @OneToOne(cascade = CascadeType.ALL)
     private Recipe recipe;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JsonIgnore
     private User user;
     @ManyToMany
