@@ -5,7 +5,7 @@ import java.util.List;
 
 @Entity
 public class User {
-    @OneToMany
+    @OneToMany(orphanRemoval = true)
     private List<BlogPost> blogPostList;
 
     @Id
