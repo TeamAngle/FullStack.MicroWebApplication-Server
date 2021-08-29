@@ -1,13 +1,12 @@
 package com.example.demo.models;
 
-import org.junit.Assert;
-import org.junit.jupiter.api.AfterEach;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.MockitoAnnotations;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RecipeTest {
 
@@ -30,7 +29,7 @@ class RecipeTest {
         Long Actual = recipe.getId();
 
         //Then
-        Assert.assertEquals(expectedId,Actual);
+        assertEquals(expectedId,Actual);
     }
 
     @Test
@@ -43,7 +42,7 @@ class RecipeTest {
         String Actual = recipe.getName();
 
         //Then
-        Assert.assertEquals(expectedName,Actual);
+       assertEquals(expectedName,Actual);
     }
 
     @Test
@@ -56,7 +55,7 @@ class RecipeTest {
         String Actual = recipe.getIngredients();
 
         //Then
-        Assert.assertEquals(expectedIngredients,Actual);
+        assertEquals(expectedIngredients,Actual);
     }
 
     @Test
@@ -69,7 +68,7 @@ class RecipeTest {
         String Actual = recipe.getInstructions();
 
         //Then
-        Assert.assertEquals(expectedInstruction,Actual);
+       assertEquals(expectedInstruction,Actual);
     }
 
     @Test
@@ -82,7 +81,7 @@ class RecipeTest {
         BlogPost Actual = recipe.getBlogPost();
 
         //Then
-        Assert.assertEquals(expectedBlogPost,Actual);
+        assertEquals(expectedBlogPost,Actual);
 
     }
 

@@ -6,7 +6,7 @@ import com.example.demo.models.Tag;
 import com.example.demo.models.User;
 import com.example.demo.repository.BlogPostRepository;
 import com.example.demo.repository.TagRepository;
-import org.junit.Assert;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -52,24 +52,24 @@ class BlogPostServiceTest {
         BlogPost Actual = blogPostService.create(blogPost);
 
         //Then
-        Assert.assertEquals(expected,Actual);
+        assertEquals(expected,Actual);
 
     }
 
     @Test
     void read()  {
         //given
-        List<Tag> tags = new ArrayList<>();
+        List<Long> id = new ArrayList<>();
         BlogPost blogPost = new BlogPost();
         BlogPost expected = new BlogPost();
 
         //when
         when(repository.findById(anyLong())).thenReturn(Optional.of(expected));
-        when(tagRepository.findByBlogPost(anyLong())).thenReturn(tags);
+        when(repository.findTagIdsByBlog(blogPost.getId())).thenReturn(id);
         BlogPost Actual = blogPostService.read(anyLong());
 
         //Then
-        Assert.assertEquals(expected,Actual);
+        assertEquals(expected,Actual);
     }
 
     @Test
@@ -83,11 +83,11 @@ class BlogPostServiceTest {
 
         //when
         when(repository.findAll()).thenReturn(expected);
-        when(tagRepository.findByBlogPost(blogPost.getId())).thenReturn(expected);
+
         List Actual = blogPostService.readAll();
 
         //Then
-        Assert.assertEquals(expected,Actual);
+       assertEquals(expected,Actual);
 
     }
 

@@ -2,7 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.models.Recipe;
 import com.example.demo.repository.RecipeRepository;
-import org.junit.Assert;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

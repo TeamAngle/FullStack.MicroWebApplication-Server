@@ -1,0 +1,7 @@
+com/example/demo/service/RecipeServiceTest.class
+com/example/demo/models/UserTest.class
+com/example/demo/models/RecipeTest.class
+com/example/demo/models/BlogPostTest.class
+com/example/demo/service/BlogPostServiceTest.class
+com/example/demo/DemoApplicationTests.class
+com/example/demo/models/TagTest.class
