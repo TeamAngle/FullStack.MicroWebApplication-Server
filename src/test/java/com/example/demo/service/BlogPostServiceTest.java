@@ -40,9 +40,10 @@ class BlogPostServiceTest {
         //given
         BlogPost blogPost = new BlogPost();
         BlogPost expected = new BlogPost();
-        Mockito.doReturn(expected).when(repository).save(blogPost);
+
 
         //when
+        Mockito.doReturn(expected).when(repository).save(blogPost);
         BlogPost Actual = blogPostService.create(blogPost);
 
         //Then
