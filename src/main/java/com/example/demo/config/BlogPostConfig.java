@@ -17,9 +17,9 @@ public class BlogPostConfig {
 
     @PostConstruct
     public void setup(){
-        for (int i = 0; i < 4; i++) {
-             service.create(new BlogPost());
-             repo.save(new User(0L, "Raymond", "password", 4, service.readAll()));
-        }
+//        for (int i = 0; i < 4; i++) {
+//             service.create(new BlogPost());
+//             repo.save(new User(0L, "Raymond", "password", 4, service.readAll()));
+//        }
     }
 }

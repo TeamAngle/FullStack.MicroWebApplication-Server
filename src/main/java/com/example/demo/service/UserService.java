@@ -38,7 +38,8 @@ public class UserService {
         User userInDatabase = read(id);
         userInDatabase.setName(newUser.getName());
         userInDatabase.setPassword(newUser.getPassword());
-        userInDatabase.setPostCount(newUser.getPostCount());
+        userInDatabase.setUserImage(newUser.getUserImage());
+        userInDatabase.setEmail(newUser.getEmail());
         return repository.save(userInDatabase);
     }
 

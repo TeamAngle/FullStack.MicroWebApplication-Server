@@ -4,6 +4,7 @@ package com.example.demo.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.sql.Clob;
 import java.util.List;
 
 @Entity
@@ -14,21 +15,24 @@ public class BlogPost {
     private Long id;
     private String title;
     private String imageUrl;
+    private Clob content;
     @OneToOne(cascade = CascadeType.ALL)
     private Recipe recipe;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JsonIgnore
     private User user;
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany
+    @JsonIgnore
     private List<Tag> tags;
 
     public BlogPost() {
     }
 
-    public BlogPost(Long id, String title, String imageUrl, Recipe recipe, User user, List<Tag> tags) {
+    public BlogPost(Long id, String title, String imageUrl, Clob content, Recipe recipe, User user, List<Tag> tags) {
         this.id = id;
         this.title = title;
         this.imageUrl = imageUrl;
+        this.content = content;
         this.recipe = recipe;
         this.user = user;
         this.tags = tags;
@@ -58,13 +62,29 @@ public class BlogPost {
         this.imageUrl = imageUrl;
     }
 
-    public Recipe getRecipe() { return recipe; }
+    public Clob getContent() {
+        return content;
+    }
 
-    public void setRecipe(Recipe recipe) { this.recipe = recipe; }
+    public void setContent(Clob content) {
+        this.content = content;
+    }
 
-    public User getUser() { return user; }
+    public Recipe getRecipe() {
+        return recipe;
+    }
 
-    public void setUser(User user) { this.user = user; }
+    public void setRecipe(Recipe recipe) {
+        this.recipe = recipe;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public List<Tag> getTags() {
         return tags;

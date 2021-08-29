@@ -1,11 +1,12 @@
 package com.example.demo.models;
 
 import javax.persistence.*;
+import java.sql.Blob;
 import java.util.List;
 
 @Entity
 public class User {
-    @OneToMany
+    @OneToMany(orphanRemoval = true)
     private List<BlogPost> blogPostList;
 
     @Id
@@ -13,18 +14,29 @@ public class User {
     Long id;
     String name;
     String password;
-    Integer postCount;
+    String email;
+    @Lob
+    Blob userImage;
 
 
 
     public User() {
     }
 
-    public User(Long id, String name, String password, Integer postCount, List<BlogPost> blogPostList) {
+    public User(List<BlogPost> blogPostList, Long id, String name, String password, String email, Blob userImage) {
+        this.blogPostList = blogPostList;
         this.id = id;
         this.name = name;
         this.password = password;
-        this.postCount = postCount;
+        this.email = email;
+        this.userImage = userImage;
+    }
+
+    public List<BlogPost> getBlogPostList() {
+        return blogPostList;
+    }
+
+    public void setBlogPostList(List<BlogPost> blogPostList) {
         this.blogPostList = blogPostList;
     }
 
@@ -52,15 +64,19 @@ public class User {
         this.password = password;
     }
 
-    public Integer getPostCount() {
-        return postCount;
+    public String getEmail() {
+        return email;
     }
 
-    public void setPostCount(Integer postCount) {
-        this.postCount = postCount;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public List<BlogPost> getBlogPostList() { return blogPostList; }
+    public Blob getUserImage() {
+        return userImage;
+    }
 
-    public void setBlogPostList(List<BlogPost> blogPostList) { this.blogPostList = blogPostList; }
+    public void setUserImage(Blob userImage) {
+        this.userImage = userImage;
+    }
 }
