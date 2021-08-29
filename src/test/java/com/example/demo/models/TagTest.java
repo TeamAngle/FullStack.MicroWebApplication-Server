@@ -1,7 +1,7 @@
 package com.example.demo.models;
 
-import org.junit.Assert;
-import org.junit.jupiter.api.AfterEach;
+
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -10,7 +10,8 @@ import org.mockito.MockitoAnnotations;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 class TagTest {
 
@@ -32,7 +33,7 @@ class TagTest {
         Long Actual = tag.getId();
 
         //Then
-        Assert.assertEquals(expectedId,Actual);
+        assertEquals(expectedId,Actual);
     }
 
     @Test
@@ -45,7 +46,7 @@ class TagTest {
         String Actual = tag.getName();
 
         //Then
-        Assert.assertEquals(expectedName,Actual);
+       assertEquals(expectedName,Actual);
     }
 
     @Test
@@ -58,7 +59,7 @@ class TagTest {
         List Actual = tag.getBlogPosts();
 
         //Then
-        Assert.assertEquals(expectedPosts,Actual);
+        assertEquals(expectedPosts,Actual);
 
 
     }

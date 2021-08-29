@@ -1,6 +1,5 @@
 package com.example.demo.models;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -8,6 +7,8 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 class BlogPostTest {
@@ -31,7 +32,7 @@ class BlogPostTest {
         Long Actual = blogPost.getId();
 
         //Then
-       Assert.assertEquals(expectedId,Actual);
+        assertEquals(expectedId,Actual);
 
     }
     @Test
@@ -44,7 +45,7 @@ class BlogPostTest {
         String Actual = blogPost.getTitle();
 
         //Then
-        Assert.assertEquals(expectedTitle,Actual);
+        assertEquals(expectedTitle,Actual);
     }
     @Test
     void getImageUrl() {
@@ -56,7 +57,7 @@ class BlogPostTest {
         String Actual = blogPost.getImageUrl();
 
         //Then
-        Assert.assertEquals(expectedImageUrl,Actual);
+        assertEquals(expectedImageUrl,Actual);
     }
 
     @Test
@@ -69,7 +70,7 @@ class BlogPostTest {
         Recipe Actual = blogPost.getRecipe();
 
         //Then
-        Assert.assertEquals(expectedRecipe,Actual);
+       assertEquals(expectedRecipe,Actual);
 
     }
 
@@ -83,7 +84,7 @@ class BlogPostTest {
         User Actual = blogPost.getUser();
 
         //Then
-        Assert.assertEquals(expectedUser,Actual);
+        assertEquals(expectedUser,Actual);
     }
 
     @Test
@@ -96,7 +97,7 @@ class BlogPostTest {
         List Actual = blogPost.getTags();
 
         //Then
-        Assert.assertEquals(expectedTags,Actual);
+        assertEquals(expectedTags,Actual);
 
     }
 

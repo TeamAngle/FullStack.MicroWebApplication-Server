@@ -1,6 +1,5 @@
 package com.example.demo.models;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -31,7 +30,7 @@ class UserTest {
         Long Actual = user.getId();
 
         //Then
-        Assert.assertEquals(expectedId,Actual);
+        assertEquals(expectedId,Actual);
     }
 
     @Test
@@ -44,7 +43,7 @@ class UserTest {
         String Actual = user.getName();
 
         //Then
-        Assert.assertEquals(expectedName,Actual);
+        assertEquals(expectedName,Actual);
     }
 
     @Test
@@ -57,21 +56,7 @@ class UserTest {
         String Actual = user.getPassword();
 
         //Then
-        Assert.assertEquals(expectedPassword,Actual);
-    }
-
-    @Test
-    void getPostCount() {
-        //given
-        Integer expectedPostCount = 10;
-        user.setPostCount(10);
-
-        //when
-        Integer Actual = user.getPostCount();
-
-        //Then
-        Assert.assertEquals(expectedPostCount,Actual);
-
+       assertEquals(expectedPassword,Actual);
     }
 
     @Test
@@ -84,6 +69,6 @@ class UserTest {
         List Actual = user.getBlogPostList();
 
         //Then
-        Assert.assertEquals(expectedBlogPostList,Actual);
+        assertEquals(expectedBlogPostList,Actual);
     }
 }
