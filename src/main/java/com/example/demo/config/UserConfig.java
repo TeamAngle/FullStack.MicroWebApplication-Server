@@ -17,6 +17,6 @@ public class UserConfig {
 
     @PostConstruct
     public void setup(){
-        repo.save(new User(0L, "Raymond", "password", 4, service.readAll()));
+//        repo.save(new User(0L, "Raymond", "password", 4, service.readAll()));
     }
     }

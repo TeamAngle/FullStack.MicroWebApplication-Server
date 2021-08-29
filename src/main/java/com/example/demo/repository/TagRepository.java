@@ -13,6 +13,7 @@ import java.util.List;
 @Repository
 public interface TagRepository extends CrudRepository<Tag, Long> {
 
-    @Query(value = "SELECT * FROM tag WHERE tag.blog_post_id = :postId", nativeQuery = true)
-    List<Tag> findByBlogPost(@Param("postId") Long blogPostId);
+    @Query(value = "SELECT blog_posts_id FROM tag t JOIN tag_blog_posts tbp ON t.id = tbp.tag_id WHERE t.id = :tagId", nativeQuery = true)
+        List<Long> findBlogIdsByTag(@Param("tagId") Long tagId);
+
 }
