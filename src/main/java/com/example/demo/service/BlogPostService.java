@@ -50,6 +50,7 @@ public class BlogPostService {
         BlogPost blogPostInDatabase = read(id);
         blogPostInDatabase.setImageUrl(newBlogPost.getImageUrl());
         blogPostInDatabase.setTitle(newBlogPost.getTitle());
+        blogPostInDatabase.setContent(newBlogPost.getContent());
         return repository.save(blogPostInDatabase);
     }
 
