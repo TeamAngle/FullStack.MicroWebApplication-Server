@@ -140,11 +140,5 @@ class BlogPostServiceTest {
         //Then
         assertEquals(blogPost,Actual);
 
-
-
-
-
-
-
     }
 }
