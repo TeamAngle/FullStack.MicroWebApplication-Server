@@ -44,10 +44,10 @@ class BlogPostServiceTest {
 
         //when
         Mockito.doReturn(expected).when(repository).save(blogPost);
-        BlogPost Actual = blogPostService.create(blogPost);
+        BlogPost actual = blogPostService.create(blogPost);
 
         //Then
-        assertEquals(expected,Actual);
+        assertEquals(expected,actual);
 
     }
 
@@ -62,10 +62,10 @@ class BlogPostServiceTest {
         when(repository.findById(anyLong())).thenReturn(Optional.of(expected));
         when(repository.findTagIdsByBlog(blogPost.getId())).thenReturn(id);
         when(tagRepository.findById(Mockito.anyLong())).thenReturn(Optional.of(new Tag()));
-        BlogPost Actual = blogPostService.read(anyLong());
+        BlogPost actual = blogPostService.read(anyLong());
 
         //Then
-        assertEquals(expected,Actual);
+        assertEquals(expected,actual);
     }
 
     @Test
@@ -82,10 +82,10 @@ class BlogPostServiceTest {
         when(repository.findAll()).thenReturn(expected);
         when(repository.findTagIdsByBlog(blogPost.getId())).thenReturn(tagIds);
 
-        List Actual = blogPostService.readAll();
+        List actual = blogPostService.readAll();
 
         //Then
-       assertEquals(expected,Actual);
+       assertEquals(expected,actual);
 
     }
 
@@ -107,10 +107,10 @@ class BlogPostServiceTest {
         when(tagRepository.findById(Mockito.anyLong())).thenReturn(Optional.of(new Tag()));
         when(repository.save(newBlogPost)).thenReturn(newBlogPost);
 
-        BlogPost Actual = blogPostService.update(Mockito.anyLong(),newBlogPost);
+        BlogPost actual = blogPostService.update(Mockito.anyLong(),newBlogPost);
 
         //Then
-        assertEquals(newBlogPost,Actual);
+        assertEquals(newBlogPost,actual);
 
     }
 
@@ -121,10 +121,10 @@ class BlogPostServiceTest {
 
         //when
         Mockito.when(repository.findById(2L)).thenReturn(Optional.of(blogPost));
-        BlogPost Actual = blogPostService.delete(blogPost);
+        BlogPost actual = blogPostService.delete(blogPost);
 
         //Then
-        assertEquals(blogPost,Actual);
+        assertEquals(blogPost,actual);
 
     }
 
@@ -135,10 +135,10 @@ class BlogPostServiceTest {
 
         //when
         Mockito.when(repository.findById(4L)).thenReturn(Optional.of(blogPost));
-        BlogPost Actual = blogPostService.delete(4L);
+        BlogPost actual = blogPostService.delete(4L);
 
         //Then
-        assertEquals(blogPost,Actual);
+        assertEquals(blogPost,actual);
 
     }
 }

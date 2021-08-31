@@ -62,10 +62,10 @@ class UserServiceTest {
         Mockito.when(repository.findById(Mockito.anyLong())).thenReturn(Optional.of(expected));
         Mockito.doReturn(blogPostList).when(blogPostRepository).findByUser(Mockito.anyLong());
 
-        User Actual = userService.read(Mockito.anyLong());
+        User actual = userService.read(Mockito.anyLong());
 
         //Then
-        assertEquals(expected,Actual);
+        assertEquals(expected,actual);
 
     }
 
@@ -82,10 +82,10 @@ class UserServiceTest {
         when(repository.findAll()).thenReturn(expected);
         when(blogPostRepository.findByUser(user.getId())).thenReturn(expected);
 
-        List Actual = userService.readAll();
+        List actual = userService.readAll();
 
         //Then
-        assertEquals(expected,Actual);
+        assertEquals(expected,actual);
 
 
     }
@@ -103,10 +103,10 @@ class UserServiceTest {
         Mockito.when(repository.findById(Mockito.anyLong())).thenReturn(Optional.of(user));
         Mockito.when(repository.save(user)).thenReturn(user);
 
-        User Actual = userService.update(Mockito.anyLong(),user);
+        User actual = userService.update(Mockito.anyLong(),user);
 
         //Then
-        assertEquals(user,Actual);
+        assertEquals(user,actual);
 
     }
 
@@ -117,10 +117,10 @@ class UserServiceTest {
 
         //when
         Mockito.when(repository.findById(2L)).thenReturn(Optional.of(user));
-        User Actual = userService.delete(user);
+        User actual = userService.delete(user);
 
         //Then
-        assertEquals(user,Actual);
+        assertEquals(user,actual);
 
     }
 
@@ -131,9 +131,9 @@ class UserServiceTest {
 
         //when
         Mockito.when(repository.findById(4L)).thenReturn(Optional.of(user));
-        User Actual = userService.delete(4L);
+        User actual = userService.delete(4L);
 
         //Then
-        assertEquals(user,Actual);
+        assertEquals(user,actual);
     }
 }

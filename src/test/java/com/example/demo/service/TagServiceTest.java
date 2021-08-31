@@ -41,10 +41,10 @@ class TagServiceTest {
 
         //when
         Mockito.doReturn(expected).when(repository).save(tag);
-        Tag Actual = tagService.create(tag);
+        Tag actual = tagService.create(tag);
 
         //Then
-        assertEquals(expected,Actual);
+        assertEquals(expected,actual);
     }
 
     @Test
@@ -58,10 +58,10 @@ class TagServiceTest {
         Mockito.when(repository.findById(Mockito.anyLong())).thenReturn(java.util.Optional.of(expected));
         Mockito.when((repository.findBlogIdsByTag(tag.getId()))).thenReturn(id);
         Mockito.when(blogPostRepository.findById(Mockito.anyLong())).thenReturn(java.util.Optional.of(new BlogPost()));
-        Tag Actual = tagService.read(Mockito.anyLong());
+        Tag actual = tagService.read(Mockito.anyLong());
 
         //Then
-        assertEquals(expected,Actual);
+        assertEquals(expected,actual);
     }
 
     @Test
@@ -78,10 +78,10 @@ class TagServiceTest {
         when(repository.findAll()).thenReturn(expected);
         when(repository.findBlogIdsByTag(tag.getId())).thenReturn(tagIds);
 
-        List Actual = tagService.readAll();
+        List actual = tagService.readAll();
 
         //Then
-        assertEquals(expected,Actual);
+        assertEquals(expected,actual);
     }
 
     @Test
@@ -103,10 +103,10 @@ class TagServiceTest {
         Mockito.when(blogPostRepository.findById(Mockito.anyLong())).thenReturn(java.util.Optional.of(new BlogPost()));
         Mockito.when( repository.save(tag)).thenReturn(tag);
 
-        Tag Actual = tagService.update(Mockito.anyLong(),tag);
+        Tag actual = tagService.update(Mockito.anyLong(),tag);
 
         //Then
-        assertEquals(tag,Actual);
+        assertEquals(tag,actual);
 
     }
 
@@ -117,10 +117,10 @@ class TagServiceTest {
 
         //when
         Mockito.when(repository.findById(2L)).thenReturn(Optional.of(tag));
-        Tag Actual = tagService.delete(tag);
+        Tag actual = tagService.delete(tag);
 
         //Then
-        assertEquals(tag,Actual);
+        assertEquals(tag,actual);
     }
 
     @Test
@@ -130,9 +130,9 @@ class TagServiceTest {
 
         //when
         Mockito.when(repository.findById(4L)).thenReturn(Optional.of(tag));
-        Tag Actual = tagService.delete(4L);
+        Tag actual = tagService.delete(4L);
 
         //Then
-        assertEquals(tag,Actual);
+        assertEquals(tag,actual);
     }
 }
