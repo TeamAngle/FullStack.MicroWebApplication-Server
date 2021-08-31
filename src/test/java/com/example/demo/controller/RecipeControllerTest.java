@@ -37,10 +37,10 @@ class RecipeControllerTest {
 
         //when
         Mockito.doReturn(recipe).when(service).read(Mockito.anyLong());
-        ResponseEntity<Recipe> Actual = recipeController.read(Mockito.anyLong());
+        ResponseEntity<Recipe> actual = recipeController.read(Mockito.anyLong());
 
         //Then
-        assertEquals(expected,Actual);
+        assertEquals(expected,actual);
     }
 
     @Test
@@ -51,10 +51,10 @@ class RecipeControllerTest {
 
         //when
         Mockito.doReturn(recipes).when(service).readAll();
-        ResponseEntity<List<Recipe>> Actual = recipeController.readAll();
+        ResponseEntity<List<Recipe>> actual = recipeController.readAll();
 
         //Then
-        assertEquals(expected,Actual);
+        assertEquals(expected,actual);
     }
 
     @Test
@@ -65,10 +65,10 @@ class RecipeControllerTest {
 
         //when
         Mockito.doReturn(recipe).when(service).create(recipe);
-        ResponseEntity<Recipe> Actual = recipeController.create(recipe);
+        ResponseEntity<Recipe> actual = recipeController.create(recipe);
 
         //Then
-        assertEquals(expected,Actual);
+        assertEquals(expected,actual);
     }
 
     @Test
@@ -80,10 +80,10 @@ class RecipeControllerTest {
         //when
         Mockito.when(service.update(5L, recipe)).thenReturn(recipe);
 
-        ResponseEntity<Recipe> Actual = recipeController.update(5L,recipe);
+        ResponseEntity<Recipe> actual = recipeController.update(5L,recipe);
 
         //Then
-        assertEquals(expected,Actual);
+        assertEquals(expected,actual);
     }
 
     @Test
@@ -94,9 +94,9 @@ class RecipeControllerTest {
 
         //when
         Mockito.doReturn(recipe).when(service).delete(Mockito.anyLong());
-        ResponseEntity<Recipe> Actual = recipeController.delete(Mockito.anyLong());
+        ResponseEntity<Recipe> actual = recipeController.delete(Mockito.anyLong());
 
         //Then
-        assertEquals(expected,Actual);
+        assertEquals(expected,actual);
     }
 }

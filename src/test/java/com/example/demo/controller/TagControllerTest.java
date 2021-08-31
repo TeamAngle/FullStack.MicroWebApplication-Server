@@ -37,10 +37,10 @@ class TagControllerTest {
 
         //when
         Mockito.doReturn(tag).when(service).read(Mockito.anyLong());
-        ResponseEntity<Tag> Actual = tagController.read(Mockito.anyLong());
+        ResponseEntity<Tag> actual = tagController.read(Mockito.anyLong());
 
         //Then
-        assertEquals(expected,Actual);
+        assertEquals(expected,actual);
     }
 
     @Test
@@ -51,10 +51,10 @@ class TagControllerTest {
 
         //when
         Mockito.doReturn(tagList).when(service).readAll();
-        ResponseEntity<List<Tag>> Actual = tagController.readAll();
+        ResponseEntity<List<Tag>> actual = tagController.readAll();
 
         //Then
-        assertEquals(expected,Actual);
+        assertEquals(expected,actual);
     }
 
     @Test
@@ -65,10 +65,10 @@ class TagControllerTest {
 
         //when
         Mockito.doReturn(tag).when(service).create(tag);
-        ResponseEntity<Tag> Actual = tagController.create(tag);
+        ResponseEntity<Tag> actual = tagController.create(tag);
 
         //Then
-        assertEquals(expected,Actual);
+        assertEquals(expected,actual);
     }
 
     @Test
@@ -80,10 +80,10 @@ class TagControllerTest {
         //when
         Mockito.when(service.update(5L, tag)).thenReturn(tag);
 
-        ResponseEntity<Tag> Actual = tagController.update(5L,tag);
+        ResponseEntity<Tag> actual = tagController.update(5L,tag);
 
         //Then
-        assertEquals(expected,Actual);
+        assertEquals(expected,actual);
     }
 
     @Test
@@ -94,9 +94,9 @@ class TagControllerTest {
 
         //when
         Mockito.doReturn(tag).when(service).delete(Mockito.anyLong());
-        ResponseEntity<Tag> Actual = tagController.delete(Mockito.anyLong());
+        ResponseEntity<Tag> actual = tagController.delete(Mockito.anyLong());
 
         //Then
-        assertEquals(expected,Actual);
+        assertEquals(expected,actual);
     }
 }

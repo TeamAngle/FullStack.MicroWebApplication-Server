@@ -29,10 +29,10 @@ class BlogPostTest {
         blogPost.setId(5L);
 
         //when
-        Long Actual = blogPost.getId();
+        Long actual = blogPost.getId();
 
         //Then
-        assertEquals(expectedId,Actual);
+        assertEquals(expectedId,actual);
 
     }
     @Test
@@ -42,10 +42,10 @@ class BlogPostTest {
         blogPost.setTitle("Blogs");
 
         //when
-        String Actual = blogPost.getTitle();
+        String actual = blogPost.getTitle();
 
         //Then
-        assertEquals(expectedTitle,Actual);
+        assertEquals(expectedTitle,actual);
     }
     @Test
     void getImageUrl() {
@@ -54,10 +54,10 @@ class BlogPostTest {
         blogPost.setImageUrl("abc012@xyz.com");
 
         //when
-        String Actual = blogPost.getImageUrl();
+        String actual = blogPost.getImageUrl();
 
         //Then
-        assertEquals(expectedImageUrl,Actual);
+        assertEquals(expectedImageUrl,actual);
     }
 
     @Test
@@ -67,10 +67,10 @@ class BlogPostTest {
         blogPost.setRecipe(expectedRecipe);
 
         //when
-        Recipe Actual = blogPost.getRecipe();
+        Recipe actual = blogPost.getRecipe();
 
         //Then
-       assertEquals(expectedRecipe,Actual);
+       assertEquals(expectedRecipe,actual);
 
     }
 
@@ -81,10 +81,10 @@ class BlogPostTest {
         blogPost.setUser(expectedUser);
 
         //when
-        User Actual = blogPost.getUser();
+        User actual = blogPost.getUser();
 
         //Then
-        assertEquals(expectedUser,Actual);
+        assertEquals(expectedUser,actual);
     }
 
     @Test
@@ -94,10 +94,10 @@ class BlogPostTest {
         blogPost.setTags(expectedTags);
 
         //when
-        List Actual = blogPost.getTags();
+        List actual = blogPost.getTags();
 
         //Then
-        assertEquals(expectedTags,Actual);
+        assertEquals(expectedTags,actual);
 
     }
 

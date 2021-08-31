@@ -38,10 +38,10 @@ class UserControllerTest {
 
         //when
         Mockito.doReturn(user).when(service).read(Mockito.anyLong());
-        ResponseEntity<User> Actual = userController.read(Mockito.anyLong());
+        ResponseEntity<User> actual = userController.read(Mockito.anyLong());
 
         //Then
-        assertEquals(expected,Actual);
+        assertEquals(expected,actual);
     }
 
     @Test
@@ -52,10 +52,10 @@ class UserControllerTest {
 
         //when
         Mockito.doReturn(userList).when(service).readAll();
-        ResponseEntity<List<User>> Actual = userController.readAll();
+        ResponseEntity<List<User>> actual = userController.readAll();
 
         //Then
-        assertEquals(expected,Actual);
+        assertEquals(expected,actual);
     }
 
     @Test
@@ -66,10 +66,10 @@ class UserControllerTest {
 
         //when
         Mockito.doReturn(user).when(service).create(user);
-        ResponseEntity<User> Actual = userController.create(user);
+        ResponseEntity<User> actual = userController.create(user);
 
         //Then
-        assertEquals(expected,Actual);
+        assertEquals(expected,actual);
     }
 
     @Test
@@ -81,10 +81,10 @@ class UserControllerTest {
         //when
         Mockito.when(service.update(5L, user)).thenReturn(user);
 
-        ResponseEntity<User> Actual = userController.update(5L,user);
+        ResponseEntity<User> actual = userController.update(5L,user);
 
         //Then
-        assertEquals(expected,Actual);
+        assertEquals(expected,actual);
     }
 
     @Test
@@ -95,9 +95,9 @@ class UserControllerTest {
 
         //when
         Mockito.doReturn(user).when(service).delete(Mockito.anyLong());
-        ResponseEntity<User> Actual = userController.delete(Mockito.anyLong());
+        ResponseEntity<User> actual = userController.delete(Mockito.anyLong());
 
         //Then
-        assertEquals(expected,Actual);
+        assertEquals(expected,actual);
     }
 }

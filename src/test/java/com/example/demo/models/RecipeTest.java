@@ -26,10 +26,10 @@ class RecipeTest {
        recipe.setId(4L);
 
         //When
-        Long Actual = recipe.getId();
+        Long actual = recipe.getId();
 
         //Then
-        assertEquals(expectedId,Actual);
+        assertEquals(expectedId,actual);
     }
 
     @Test
@@ -39,10 +39,10 @@ class RecipeTest {
         recipe.setName("Airfryer");
 
         //when
-        String Actual = recipe.getName();
+        String actual = recipe.getName();
 
         //Then
-       assertEquals(expectedName,Actual);
+       assertEquals(expectedName,actual);
     }
 
     @Test
@@ -52,10 +52,10 @@ class RecipeTest {
         recipe.setIngredients("Spices");
 
         //When
-        String Actual = recipe.getIngredients();
+        String actual = recipe.getIngredients();
 
         //Then
-        assertEquals(expectedIngredients,Actual);
+        assertEquals(expectedIngredients,actual);
     }
 
     @Test
@@ -65,10 +65,10 @@ class RecipeTest {
         recipe.setInstructions("FollowMe");
 
         //when
-        String Actual = recipe.getInstructions();
+        String actual = recipe.getInstructions();
 
         //Then
-       assertEquals(expectedInstruction,Actual);
+       assertEquals(expectedInstruction,actual);
     }
 
     @Test
@@ -78,10 +78,10 @@ class RecipeTest {
         recipe.setBlogPost(expectedBlogPost);
 
         //when
-        BlogPost Actual = recipe.getBlogPost();
+        BlogPost actual = recipe.getBlogPost();
 
         //Then
-        assertEquals(expectedBlogPost,Actual);
+        assertEquals(expectedBlogPost,actual);
 
     }
 

@@ -19,8 +19,6 @@ class TagTest {
     @InjectMocks
     Tag tag;
 
-
-
     @BeforeEach
     void setUp() {
         MockitoAnnotations.initMocks(this);
@@ -33,10 +31,10 @@ class TagTest {
         tag.setId(6L);
 
         //when
-        Long Actual = tag.getId();
+        Long actual = tag.getId();
 
         //Then
-        assertEquals(expectedId,Actual);
+        assertEquals(expectedId,actual);
     }
 
     @Test
@@ -46,10 +44,10 @@ class TagTest {
         tag.setName("HashTag");
 
         //when
-        String Actual = tag.getName();
+        String actual = tag.getName();
 
         //Then
-       assertEquals(expectedName,Actual);
+       assertEquals(expectedName,actual);
     }
 
     @Test
@@ -59,10 +57,10 @@ class TagTest {
         tag.setBlogPosts(expectedPosts);
 
         //when
-        List Actual = tag.getBlogPosts();
+        List actual = tag.getBlogPosts();
 
         //Then
-        assertEquals(expectedPosts,Actual);
+        assertEquals(expectedPosts,actual);
 
 
     }

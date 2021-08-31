@@ -66,10 +66,10 @@ class RecipeServiceTest {
 
         //when
         Mockito.when(repository.findAll()).thenReturn(expected);
-        List Actual = recipeService.readAll();
+        List actual = recipeService.readAll();
 
         //Then
-        assertEquals(expected,Actual);
+        assertEquals(expected,actual);
     }
 
     @Test
@@ -86,10 +86,10 @@ class RecipeServiceTest {
         //when
         Mockito.when(repository.findById(Mockito.anyLong())).thenReturn(Optional.of(recipe));
         Mockito.when(repository.save(recipe)).thenReturn(recipe);
-        Recipe Actual = recipeService.update(Mockito.anyLong(),recipe);
+        Recipe actual = recipeService.update(Mockito.anyLong(),recipe);
 
         //Then
-        assertEquals(recipe,Actual);
+        assertEquals(recipe,actual);
     }
 
     @Test
@@ -99,10 +99,10 @@ class RecipeServiceTest {
 
         //when
         Mockito.when(repository.findById(2L)).thenReturn(Optional.of(recipe));
-        Recipe Actual = recipeService.delete(recipe);
+        Recipe actual = recipeService.delete(recipe);
 
         //Then
-        assertEquals(recipe,Actual);
+        assertEquals(recipe,actual);
     }
 
     @Test
@@ -112,9 +112,9 @@ class RecipeServiceTest {
 
         //when
         Mockito.when(repository.findById(4L)).thenReturn(Optional.of(recipe));
-        Recipe Actual = recipeService.delete(4L);
+        Recipe actual = recipeService.delete(4L);
 
         //Then
-        assertEquals(recipe,Actual);
+        assertEquals(recipe,actual);
     }
 }

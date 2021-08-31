@@ -40,10 +40,10 @@ class UserTest {
         user.setName("Nisha");
 
         //when
-        String Actual = user.getName();
+        String actual = user.getName();
 
         //Then
-        assertEquals(expectedName,Actual);
+        assertEquals(expectedName,actual);
     }
 
     @Test
@@ -53,10 +53,10 @@ class UserTest {
         user.setPassword("zipcode");
 
         //when
-        String Actual = user.getPassword();
+        String actual = user.getPassword();
 
         //Then
-       assertEquals(expectedPassword,Actual);
+       assertEquals(expectedPassword,actual);
     }
 
     @Test
@@ -66,9 +66,9 @@ class UserTest {
         user.setBlogPostList(expectedBlogPostList);
 
         //when
-        List Actual = user.getBlogPostList();
+        List actual = user.getBlogPostList();
 
         //Then
-        assertEquals(expectedBlogPostList,Actual);
+        assertEquals(expectedBlogPostList,actual);
     }
 }

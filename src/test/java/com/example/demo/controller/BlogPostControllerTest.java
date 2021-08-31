@@ -38,10 +38,10 @@ class BlogPostControllerTest {
 
         //when
         Mockito.doReturn(blogPost).when(service).read(Mockito.anyLong());
-        ResponseEntity<BlogPost> Actual = blogPostController.read(Mockito.anyLong());
+        ResponseEntity<BlogPost> actual = blogPostController.read(Mockito.anyLong());
 
         //Then
-        assertEquals(expected,Actual);
+        assertEquals(expected,actual);
     }
 
     @Test
@@ -52,10 +52,10 @@ class BlogPostControllerTest {
 
         //when
         Mockito.doReturn(blogPostList).when(service).readAll();
-        ResponseEntity<List<BlogPost>> Actual = blogPostController.readAll();
+        ResponseEntity<List<BlogPost>> actual = blogPostController.readAll();
 
         //Then
-        assertEquals(expected,Actual);
+        assertEquals(expected,actual);
 
     }
 
@@ -67,10 +67,10 @@ class BlogPostControllerTest {
 
         //when
         Mockito.doReturn(blogPost).when(service).create(blogPost);
-        ResponseEntity<BlogPost> Actual = blogPostController.create(blogPost);
+        ResponseEntity<BlogPost> actual = blogPostController.create(blogPost);
 
         //Then
-        assertEquals(expected,Actual);
+        assertEquals(expected,actual);
 
     }
 
@@ -83,10 +83,10 @@ class BlogPostControllerTest {
         //when
         Mockito.when(service.update(5L, blogPost)).thenReturn(blogPost);
 
-        ResponseEntity<BlogPost> Actual = blogPostController.update(5L,blogPost);
+        ResponseEntity<BlogPost> actual = blogPostController.update(5L,blogPost);
 
         //Then
-        assertEquals(expected,Actual);
+        assertEquals(expected,actual);
     }
 
     @Test
@@ -97,9 +97,9 @@ class BlogPostControllerTest {
 
         //when
         Mockito.doReturn(blogPost).when(service).delete(Mockito.anyLong());
-        ResponseEntity<BlogPost> Actual = blogPostController.delete(Mockito.anyLong());
+        ResponseEntity<BlogPost> actual = blogPostController.delete(Mockito.anyLong());
 
         //Then
-        assertEquals(expected,Actual);
+        assertEquals(expected,actual);
     }
 }
