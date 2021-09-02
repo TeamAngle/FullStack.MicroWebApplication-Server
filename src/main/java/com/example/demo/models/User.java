@@ -13,18 +13,33 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "users")
 public class User {
-    @OneToMany(orphanRemoval = true)
-    private List<BlogPost> blogPostList;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     Long id;
+
+    @Column(name = "name")
     String name;
+
+    @Column(name = "password")
     String password;
+
+    @Column(name = "email")
     String email;
+
     @Lob
+    @Column(name = "name")
     Blob userImage;
+
+    @OneToMany(orphanRemoval = true)
+    @JoinTable(name = "user_posts",
+        joinColumns = @JoinColumn(name = "user_id"),
+        inverseJoinColumns = @JoinColumn(name = "blogpost_id"))
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+    private List<BlogPost> blogPostList;
 
 
 }

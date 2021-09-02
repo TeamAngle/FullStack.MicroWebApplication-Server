@@ -16,6 +16,7 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "blogpost")
 public class BlogPost {
 
     @Id
