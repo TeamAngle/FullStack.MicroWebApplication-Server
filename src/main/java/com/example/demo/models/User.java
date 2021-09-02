@@ -31,10 +31,10 @@ public class User {
     String email;
 
     @Lob
-    @Column(name = "name")
+    @Column(name = "userimage")
     Blob userImage;
 
-    @OneToMany(orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "user_posts",
         joinColumns = @JoinColumn(name = "user_id"),
         inverseJoinColumns = @JoinColumn(name = "blogpost_id"))

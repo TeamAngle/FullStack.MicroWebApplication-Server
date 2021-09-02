@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
-import com.example.demo.models.Recipe;
-import com.example.demo.repository.RecipeRepository;
+//import com.example.demo.models.Recipe;
+//import com.example.demo.repository.RecipeRepository;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,11 +14,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RecipeServiceTest {
 
-    @InjectMocks
-    RecipeService recipeService;
-
-    @Mock
-    RecipeRepository repository;
+//    @InjectMocks
+//    RecipeService recipeService;
+//
+//    @Mock
+//    RecipeRepository repository;
 
     @BeforeEach
     void setUp() {
