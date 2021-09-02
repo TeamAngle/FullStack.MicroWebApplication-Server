@@ -60,19 +60,7 @@ class UserTest {
         Assert.assertEquals(expectedPassword,Actual);
     }
 
-    @Test
-    void getPostCount() {
-        //given
-        Integer expectedPostCount = 10;
-        user.setPostCount(10);
 
-        //when
-        Integer Actual = user.getPostCount();
-
-        //Then
-        Assert.assertEquals(expectedPostCount,Actual);
-
-    }
 
     @Test
     void getBlogPostList() {
