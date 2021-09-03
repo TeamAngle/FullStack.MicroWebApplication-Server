@@ -30,7 +30,7 @@
 //
 //    public Recipe update(Long id, Recipe newRecipe){
 //        Recipe recipeInDatabase = read(id);
-//        recipeInDatabase.setName(newRecipe.getName());
+//        recipeInDatabase.setUsername(newRecipe.getUsername());
 //        recipeInDatabase.setIngredients(newRecipe.getIngredients());
 //        recipeInDatabase.setInstructions(newRecipe.getInstructions());
 //        return repository.save(recipeInDatabase);

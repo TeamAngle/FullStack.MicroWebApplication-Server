@@ -1,28 +1,7 @@
 package com.example.demo.service;
 
-import com.example.demo.models.BlogPost;
 //import com.example.demo.models.Recipe;
-import com.example.demo.models.Tag;
-import com.example.demo.models.User;
-import com.example.demo.repository.BlogPostRepository;
-import com.example.demo.repository.TagRepository;
-import org.junit.Assert;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.when;
 
 class BlogPostServiceTest {
 //

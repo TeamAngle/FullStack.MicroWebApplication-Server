@@ -1,8 +1,7 @@
 package com.example.demo.service;
 
-import com.example.demo.models.User;
+import com.example.demo.model.entity.User;
 import com.example.demo.repository.BlogPostRepository;
-import com.example.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,7 +35,7 @@ public class UserService {
 
     public User update(Long id, User newUser){
         User userInDatabase = read(id);
-        userInDatabase.setName(newUser.getName());
+        userInDatabase.setUsername(newUser.getUsername());
         userInDatabase.setPassword(newUser.getPassword());
         userInDatabase.setUserImage(newUser.getUserImage());
         userInDatabase.setEmail(newUser.getEmail());

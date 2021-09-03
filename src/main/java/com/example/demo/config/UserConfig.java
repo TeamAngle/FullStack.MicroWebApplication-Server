@@ -1,8 +1,5 @@
 package com.example.demo.config;
 
-import com.example.demo.models.User;
-import com.example.demo.repository.BlogPostRepository;
-import com.example.demo.repository.UserRepository;
 import com.example.demo.service.BlogPostService;
 import org.springframework.beans.factory.annotation.Autowired;
 

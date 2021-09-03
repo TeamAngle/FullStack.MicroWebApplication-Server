@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
-import com.example.demo.models.BlogPost;
-import com.example.demo.models.Tag;
+import com.example.demo.model.entity.BlogPost;
+import com.example.demo.model.entity.Tag;
 import com.example.demo.repository.BlogPostRepository;
 import com.example.demo.repository.TagRepository;
 import org.springframework.beans.factory.annotation.Autowired;
