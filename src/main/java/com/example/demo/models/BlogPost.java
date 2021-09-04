@@ -2,6 +2,7 @@ package com.example.demo.models;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Nationalized;
 
 import javax.persistence.*;
 import java.sql.Clob;
@@ -15,7 +16,8 @@ public class BlogPost {
     private Long id;
     private String title;
     private String imageUrl;
-    private Clob content;
+    @Nationalized
+    private String content;
     @OneToOne(cascade = CascadeType.ALL)
     private Recipe recipe;
     @ManyToOne
@@ -28,7 +30,7 @@ public class BlogPost {
     public BlogPost() {
     }
 
-    public BlogPost(Long id, String title, String imageUrl, Clob content, Recipe recipe, User user, List<Tag> tags) {
+    public BlogPost(Long id, String title, String imageUrl, String content, Recipe recipe, User user, List<Tag> tags) {
         this.id = id;
         this.title = title;
         this.imageUrl = imageUrl;
@@ -62,11 +64,11 @@ public class BlogPost {
         this.imageUrl = imageUrl;
     }
 
-    public Clob getContent() {
+    public String getContent() {
         return content;
     }
 
-    public void setContent(Clob content) {
+    public void setContent(String content) {
         this.content = content;
     }
 
