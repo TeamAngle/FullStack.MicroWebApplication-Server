@@ -12,10 +12,10 @@ import java.util.List;
 @Repository
 public interface BlogPostRepository extends CrudRepository<BlogPost, Long> {
 
-    @Query(value = "SELECT * FROM blog_post b WHERE b.user_id = :userId", nativeQuery = true)
+    @Query(value = "SELECT * FROM blogposts b WHERE b.user_id = :userId", nativeQuery = true)
     List<BlogPost> findByUser(@Param("userId") Long userId);
 
-    @Query(value = "SELECT tag_id FROM blog_post bp JOIN tag_blog_posts tbp ON bp.id = tbp.blog_posts_id WHERE bp.id = :postId", nativeQuery = true)
+    @Query(value = "SELECT tags_id FROM blogposts bp JOIN blogposts_tags tbp ON bp.id = tbp.blog_post_id WHERE bp.id = :postId", nativeQuery = true)
     List<Long> findTagIdsByBlog(@Param("postId") Long postId);
 
 }

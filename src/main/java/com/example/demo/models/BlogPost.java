@@ -9,20 +9,30 @@ import java.sql.Clob;
 import java.util.List;
 
 @Entity
+@Table(name = "blogposts")
 public class BlogPost {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "title")
     private String title;
+
+    @Column(name = "image_url")
     private String imageUrl;
+
     @Nationalized
+    @Column(name = "content")
     private String content;
+
     @OneToOne(cascade = CascadeType.ALL)
     private Recipe recipe;
+
     @ManyToOne
     @JsonIgnore
     private User user;
+
     @ManyToMany
     @JsonIgnore
     private List<Tag> tags;

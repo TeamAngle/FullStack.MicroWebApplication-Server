@@ -5,6 +5,7 @@ import java.sql.Blob;
 import java.util.List;
 
 @Entity
+@Table(name = "users")
 public class User {
     @OneToMany(orphanRemoval = true)
     private List<BlogPost> blogPostList;
@@ -12,10 +13,18 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+
+    @Column(name = "username")
     String name;
+
+    @Column(name = "password")
     String password;
+
+    @Column(name = "email")
     String email;
+
     @Lob
+    @Column(name = "userImage")
     Blob userImage;
 
 
