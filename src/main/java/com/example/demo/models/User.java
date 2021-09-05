@@ -1,18 +1,12 @@
 package com.example.demo.models;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Blob;
 import java.util.List;
 
-@Data
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "users")
 public class User {
 
@@ -38,4 +32,63 @@ public class User {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private List<BlogPost> blogPostList;
 
+    public User() {
+    }
+
+    public User(Long id, String name, String password, String email, Blob userImage, List<BlogPost> blogPostList) {
+        this.id = id;
+        this.name = name;
+        this.password = password;
+        this.email = email;
+        this.userImage = userImage;
+        this.blogPostList = blogPostList;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Blob getUserImage() {
+        return userImage;
+    }
+
+    public void setUserImage(Blob userImage) {
+        this.userImage = userImage;
+    }
+
+    public List<BlogPost> getBlogPostList() {
+        return blogPostList;
+    }
+
+    public void setBlogPostList(List<BlogPost> blogPostList) {
+        this.blogPostList = blogPostList;
+    }
 }
