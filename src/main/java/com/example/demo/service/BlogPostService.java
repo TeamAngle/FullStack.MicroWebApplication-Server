@@ -17,7 +17,6 @@ public class BlogPostService {
     @Autowired
     TagRepository tagRepository;
 
-
     public BlogPost create(BlogPost blogPost){
         List<Tag> blogTags = blogPost.getTags();
         if(blogPost.getTags() != null) {
