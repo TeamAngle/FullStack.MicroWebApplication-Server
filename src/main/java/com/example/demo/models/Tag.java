@@ -1,6 +1,7 @@
 package com.example.demo.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.List;
@@ -14,11 +15,9 @@ public class Tag {
 
     @Column(name = "name")
     String name;
+
     @ManyToMany
-    @JoinTable(
-            joinColumns = @JoinColumn (name = "tag_id"),
-            inverseJoinColumns = @JoinColumn (name = "blog_posts_id")
-    )
+    @JsonIgnoreProperties("tags")
     List<BlogPost> blogPosts;
 
     public Tag() {

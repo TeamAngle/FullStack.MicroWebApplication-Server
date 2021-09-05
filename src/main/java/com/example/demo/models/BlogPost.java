@@ -1,7 +1,9 @@
 package com.example.demo.models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Nationalized;
 
 import javax.persistence.*;
@@ -30,11 +32,14 @@ public class BlogPost {
     private Recipe recipe;
 
     @ManyToOne
-    @JsonIgnore
+    @JsonBackReference
     private User user;
 
     @ManyToMany
-    @JsonIgnore
+    @JoinTable(name="blogpost_tags",
+            joinColumns = @JoinColumn(name = "blog_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "tag_id", referencedColumnName = "id"))
+    @JsonIgnoreProperties("blogposts")
     private List<Tag> tags;
 
     public BlogPost() {

@@ -17,7 +17,29 @@ public class BlogPostService {
     @Autowired
     TagRepository tagRepository;
 
-    public BlogPost create(BlogPost blogPost){ return repository.save(blogPost); }
+//    if (postRequest.getTags() != null) {
+//
+//        for (Tag t : postRequest.getTags()) {
+//            if (tagRepository.existsByTagName(t.getTagName())) {
+//                t.setId(tagRepository.findByTagName(t.getTagName()).getId());
+//            }
+//            tagRepository.save(t);
+//        }
+//    }
+
+    public BlogPost create(BlogPost blogPost){
+        List<Tag> blogTags = blogPost.getTags();
+        if(blogPost.getTags() != null) {
+            for(Tag blogTag : blogTags) {
+                String tagName = blogTag.getName();
+                if(tagRepository.existsByTagName(tagName) == 1) {
+                    Long tagId = tagRepository.findIdByTag(blogTag.getName());
+                    blogTag.setId(tagId);
+                } else tagRepository.save(blogTag);
+            }
+        }
+        return repository.save(blogPost);
+    }
 
     public BlogPost read(Long id){
         BlogPost blogPost = repository.findById(id).get();
