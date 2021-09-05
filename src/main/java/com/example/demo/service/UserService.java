@@ -35,7 +35,7 @@ public class UserService {
     }
 
     public User update(Long id, User newUser){
-        User userInDatabase = read(id);
+        User userInDatabase = repository.findById(id).get();
         userInDatabase.setName(newUser.getName());
         userInDatabase.setPassword(newUser.getPassword());
         userInDatabase.setUserImage(newUser.getUserImage());
