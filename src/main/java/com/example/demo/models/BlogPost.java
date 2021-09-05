@@ -2,12 +2,10 @@ package com.example.demo.models;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Nationalized;
 
 import javax.persistence.*;
-import java.sql.Clob;
 import java.util.List;
 
 @Entity
