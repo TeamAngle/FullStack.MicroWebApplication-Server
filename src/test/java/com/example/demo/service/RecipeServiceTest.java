@@ -2,7 +2,6 @@ package com.example.demo.service;
 
 import com.example.demo.models.Recipe;
 import com.example.demo.repository.RecipeRepository;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -14,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RecipeServiceTest {
 
