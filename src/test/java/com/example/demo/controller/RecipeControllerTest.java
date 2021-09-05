@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import com.example.demo.models.BlogPost;
 import com.example.demo.models.Recipe;
 import com.example.demo.service.RecipeService;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,7 +14,7 @@ import org.springframework.http.ResponseEntity;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RecipeControllerTest {
     @InjectMocks
