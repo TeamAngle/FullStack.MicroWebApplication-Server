@@ -28,8 +28,7 @@ public class BlogPost {
     @Column(name = "content")
     private String content;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private Recipe recipe;
+    private String recipe;
 
     @ManyToOne
     @JsonBackReference
@@ -45,7 +44,7 @@ public class BlogPost {
     public BlogPost() {
     }
 
-    public BlogPost(Long id, String title, String imageUrl, String content, Recipe recipe, User user, List<Tag> tags) {
+    public BlogPost(Long id, String title, String imageUrl, String content, String recipe, User user, List<Tag> tags) {
         this.id = id;
         this.title = title;
         this.imageUrl = imageUrl;
@@ -87,11 +86,11 @@ public class BlogPost {
         this.content = content;
     }
 
-    public Recipe getRecipe() {
+    public String getRecipe() {
         return recipe;
     }
 
-    public void setRecipe(Recipe recipe) {
+    public void setRecipe(String recipe) {
         this.recipe = recipe;
     }
 

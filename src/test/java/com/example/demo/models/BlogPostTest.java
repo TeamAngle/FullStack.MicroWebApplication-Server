@@ -60,19 +60,19 @@ class BlogPostTest {
         assertEquals(expectedImageUrl,actual);
     }
 
-    @Test
-    void getRecipe() {
-        //given
-        Recipe expectedRecipe = new Recipe();
-        blogPost.setRecipe(expectedRecipe);
-
-        //when
-        Recipe actual = blogPost.getRecipe();
-
-        //Then
-       assertEquals(expectedRecipe,actual);
-
-    }
+//    @Test
+//    void getRecipe() {
+//        //given
+//        Recipe expectedRecipe = new Recipe();
+//        blogPost.setRecipe(expectedRecipe);
+//
+//        //when
+//        Recipe actual = blogPost.getRecipe();
+//
+//        //Then
+//       assertEquals(expectedRecipe,actual);
+//
+//    }
 
     @Test
     void getUser() {
