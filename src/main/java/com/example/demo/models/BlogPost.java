@@ -21,11 +21,12 @@ public class BlogPost {
     @Column(name = "title")
     private String title;
 
-    @Column(name = "image_url")
+    @Lob
+    @Column(name = "image_url", length = 666000)
     private String imageUrl;
 
-    @Nationalized
-    @Column(name = "content")
+    @Lob
+    @Column(name = "content", length = 666000)
     private String content;
 
     private String recipe;
