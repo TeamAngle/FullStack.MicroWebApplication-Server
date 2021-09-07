@@ -1,0 +1,14 @@
+<app-header></app-header>
+<div class="blog-body" *ngIf="blogPost">
+    <div class="header">
+        <div class="title">
+            <h1>{{blogPost.title}}</h1>
+            <h2>posted by: usernameHere</h2>
+        </div>
+        <img src={{blogPost.imageUrl}}/>
+    </div>
+    <p class="body">{{blogPost.content}}</p>
+    <h3><strong>Recipe</strong></h3>
+    <p>{{blogPost.recipe}}</p>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,13 @@
+<app-header></app-header>
+<body>
+    <div id="bloglist">
+        <ul>
+            <li id="userblogs" *ngFor="let blog of this.currentUser.blogPostList">
+                <a routerLink = "/blog/{{blog.id}}"><p>{{blog.title}}</p></a>
+                <img src="{{blog.imageUrl}}" alt="">
+            </li>
+        </ul>
+    </div>
+    <app-user-sidebar></app-user-sidebar>  
+</body>
+<app-footer></app-footer>

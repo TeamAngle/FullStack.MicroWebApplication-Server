@@ -1,0 +1,26 @@
+<app-header></app-header>
+<!-- <form action="">
+    <div id="title">
+        <label for="title"></label>
+        <input type="text" id="title" name="title" placeholder="Title"><br>
+    </div>
+    <div id="post">
+        <label for="post"></label>
+        <input type="text" name="post" id="post" placeholder="Body">
+    </div>
+    <span id="imgAndSubmit">
+        <label for="image"></label>
+        <input type="text" name="image" id="image" placeholder="Image">
+        <button>Add</button>
+        <button>Submit</button>
+    </span>
+</form> -->
+<h1>Recent Posts</h1>
+<body>
+    <div class="blogs" *ngFor="let blog of this.blogs">
+        <img src="{{blog.imageUrl}}">
+        <h2><a routerLink="/blog/{{blog.id}}">{{blog.title}}</a></h2>
+        <br>
+    </div>
+</body>
+<app-footer></app-footer>
