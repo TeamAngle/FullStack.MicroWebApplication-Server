@@ -3,21 +3,32 @@ package com.example.demo.controller;
 import com.example.demo.models.BlogPost;
 import com.example.demo.models.User;
 import com.example.demo.service.UserService;
+import com.google.gson.Gson;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 class UserControllerTest {
+
+    @Autowired
+    MockMvc mockMvc;
 
     @InjectMocks
     UserController userController;
@@ -25,79 +36,73 @@ class UserControllerTest {
     @Mock
     UserService service;
 
+    private Gson gson;
+
+    UserControllerTest(){
+
+    }
+
     @BeforeEach
     void setUp() {
         MockitoAnnotations.initMocks(this);
+        mockMvc = MockMvcBuilders.standaloneSetup(userController).build();
+        gson = new Gson();
     }
 
     @Test
-    void read() {
-        //given
-        User user = new User();
-        ResponseEntity<User> expected = new ResponseEntity<>(user, HttpStatus.OK);
+    void read() throws Exception {
 
-        //when
+        User user = new User();
+
         Mockito.doReturn(user).when(service).read(Mockito.anyLong());
-        ResponseEntity<User> actual = userController.read(Mockito.anyLong());
 
-        //Then
-        assertEquals(expected,actual);
+        mockMvc.perform(get("/userController/read/{id}",5L)).andExpect(status().isOk());
     }
 
     @Test
-    void readAll() {
-        //given
+    void readAll() throws Exception {
+
         List<User> userList = new ArrayList<>();
-        ResponseEntity<List<User>> expected = new ResponseEntity<>(userList,HttpStatus.OK);
 
-        //when
         Mockito.doReturn(userList).when(service).readAll();
-        ResponseEntity<List<User>> actual = userController.readAll();
 
-        //Then
-        assertEquals(expected,actual);
+        mockMvc.perform(get("/userController/read",5L)).andExpect(status().isOk());
     }
 
     @Test
-    void create() {
-        //given
-        User user = new User();
-        ResponseEntity<User> expected = new ResponseEntity<>(user,HttpStatus.CREATED);
+    void create() throws Exception {
 
-        //when
+        User user = new User();
+
         Mockito.doReturn(user).when(service).create(user);
-        ResponseEntity<User> actual = userController.create(user);
 
-        //Then
-        assertEquals(expected,actual);
+        mockMvc.perform(post("/userController/create")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(gson.toJson(user)))
+                .andExpect(status().isCreated());
     }
 
     @Test
-    void update() {
-        //given
-        User user = new User();
-        ResponseEntity<User> expected = new ResponseEntity<>(user,HttpStatus.OK);
+    void update() throws Exception {
 
-        //when
+        User user = new User();
+
         Mockito.when(service.update(5L, user)).thenReturn(user);
 
-        ResponseEntity<User> actual = userController.update(5L,user);
-
-        //Then
-        assertEquals(expected,actual);
+        mockMvc.perform(put("/userController/update/{id}",5L)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(gson.toJson(user)))
+                .andExpect(status().isOk());
     }
 
     @Test
-    void delete() {
-        //given
+    void deleteTest() throws Exception {
+
         User user = new User();
-        ResponseEntity<User> expected = new ResponseEntity<>(user,HttpStatus.OK);
 
-        //when
         Mockito.doReturn(user).when(service).delete(Mockito.anyLong());
-        ResponseEntity<User> actual = userController.delete(Mockito.anyLong());
 
-        //Then
-        assertEquals(expected,actual);
+        mockMvc.perform(delete("/userController/delete/{id}", 5L))
+                .andExpect(status().isOk());
     }
 }
