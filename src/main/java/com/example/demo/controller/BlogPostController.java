@@ -31,6 +31,7 @@ public class BlogPostController {
         return new ResponseEntity<>(service.create(blogPost), HttpStatus.CREATED);
     }
 
+
     @PutMapping(value = "/update/{id}")
     public ResponseEntity<BlogPost> update(@PathVariable Long id, @RequestBody BlogPost blogPost){
         return new ResponseEntity<>(service.update(id, blogPost), HttpStatus.OK);

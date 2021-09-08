@@ -5,6 +5,7 @@ package com.example.demo.models;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.util.ArrayList;
@@ -30,10 +31,10 @@ class TagTest {
         tag.setId(6L);
 
         //when
-        Long Actual = tag.getId();
+        Long actual = tag.getId();
 
         //Then
-        assertEquals(expectedId,Actual);
+        assertEquals(expectedId,actual);
     }
 
     @Test
@@ -43,10 +44,10 @@ class TagTest {
         tag.setName("HashTag");
 
         //when
-        String Actual = tag.getName();
+        String actual = tag.getName();
 
         //Then
-       assertEquals(expectedName,Actual);
+       assertEquals(expectedName,actual);
     }
 
     @Test
@@ -56,10 +57,10 @@ class TagTest {
         tag.setBlogPosts(expectedPosts);
 
         //when
-        List Actual = tag.getBlogPosts();
+        List actual = tag.getBlogPosts();
 
         //Then
-        assertEquals(expectedPosts,Actual);
+        assertEquals(expectedPosts,actual);
 
 
     }

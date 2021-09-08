@@ -1,34 +1,50 @@
 package com.example.demo.models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Nationalized;
 
 import javax.persistence.*;
 import java.sql.Clob;
 import java.util.List;
 
 @Entity
+@Table(name = "blogposts")
 public class BlogPost {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "title")
     private String title;
+
+    @Column(name = "image_url")
     private String imageUrl;
-    private Clob content;
-    @OneToOne(cascade = CascadeType.ALL)
-    private Recipe recipe;
+
+    @Nationalized
+    @Column(name = "content")
+    private String content;
+
+    private String recipe;
+
     @ManyToOne
-    @JsonIgnore
+    @JsonBackReference
     private User user;
+
     @ManyToMany
-    @JsonIgnore
+    @JoinTable(name="blogpost_tags",
+            joinColumns = @JoinColumn(name = "blog_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "tag_id", referencedColumnName = "id"))
+    @JsonIgnoreProperties("blogposts")
     private List<Tag> tags;
 
     public BlogPost() {
     }
 
-    public BlogPost(Long id, String title, String imageUrl, Clob content, Recipe recipe, User user, List<Tag> tags) {
+    public BlogPost(Long id, String title, String imageUrl, String content, String recipe, User user, List<Tag> tags) {
         this.id = id;
         this.title = title;
         this.imageUrl = imageUrl;
@@ -62,19 +78,19 @@ public class BlogPost {
         this.imageUrl = imageUrl;
     }
 
-    public Clob getContent() {
+    public String getContent() {
         return content;
     }
 
-    public void setContent(Clob content) {
+    public void setContent(String content) {
         this.content = content;
     }
 
-    public Recipe getRecipe() {
+    public String getRecipe() {
         return recipe;
     }
 
-    public void setRecipe(Recipe recipe) {
+    public void setRecipe(String recipe) {
         this.recipe = recipe;
     }
 

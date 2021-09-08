@@ -1,21 +1,23 @@
 package com.example.demo.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "tags")
 public class Tag {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+
+    @Column(name = "name")
     String name;
+
     @ManyToMany
-    @JoinTable(
-            joinColumns = @JoinColumn (name = "tag_id"),
-            inverseJoinColumns = @JoinColumn (name = "blog_posts_id")
-    )
+    @JsonIgnoreProperties("tags")
     List<BlogPost> blogPosts;
 
     public Tag() {
