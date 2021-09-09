@@ -14,13 +14,13 @@ public class SessionService {
     @Autowired
     SessionRepository repository;
 
-    public Session read(Long id){
-        return repository.findById(id).get();
+    public Session read(){
+        return repository.findById(1l).get();
 
     }
 
-    public Session update(Long id, Session newSession){
-        Session sessionInDatabase = read(id);
+    public Session update(Session newSession){
+        Session sessionInDatabase = read();
         sessionInDatabase.setUserId(newSession.getUserId());
         return repository.save(sessionInDatabase);
     }

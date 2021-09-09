@@ -26,7 +26,7 @@ public class User {
 
     @Lob
     @Column(name = "userImage")
-    Blob userImage;
+    String userImage;
 
     @JsonManagedReference
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -37,20 +37,12 @@ public class User {
     public User() {
     }
 
-    public User(List<BlogPost> blogPostList, Long id, String name, String password, String email, Blob userImage) {
-        this.blogPostList = blogPostList;
+    public User(Long id, String name, String password, String email, String userImage, List<BlogPost> blogPostList) {
         this.id = id;
         this.name = name;
         this.password = password;
         this.email = email;
         this.userImage = userImage;
-    }
-
-    public List<BlogPost> getBlogPostList() {
-        return blogPostList;
-    }
-
-    public void setBlogPostList(List<BlogPost> blogPostList) {
         this.blogPostList = blogPostList;
     }
 
@@ -86,11 +78,19 @@ public class User {
         this.email = email;
     }
 
-    public Blob getUserImage() {
+    public String getUserImage() {
         return userImage;
     }
 
-    public void setUserImage(Blob userImage) {
+    public void setUserImage(String userImage) {
         this.userImage = userImage;
+    }
+
+    public List<BlogPost> getBlogPostList() {
+        return blogPostList;
+    }
+
+    public void setBlogPostList(List<BlogPost> blogPostList) {
+        this.blogPostList = blogPostList;
     }
 }

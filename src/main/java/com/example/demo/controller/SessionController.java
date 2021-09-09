@@ -17,11 +17,11 @@ public class SessionController {
 
     @GetMapping(value = "/read")
     public ResponseEntity<Session> read(){
-        return new ResponseEntity<>(service.read(1l), HttpStatus.OK);
+        return new ResponseEntity<>(service.read(), HttpStatus.OK);
     }
 
     @PutMapping(value = "/update")
     public ResponseEntity<Session> update(@RequestBody Session session){
-        return new ResponseEntity<>(service.update(1l, session), HttpStatus.OK);
+        return new ResponseEntity<>(service.update(session), HttpStatus.OK);
     }
 }
