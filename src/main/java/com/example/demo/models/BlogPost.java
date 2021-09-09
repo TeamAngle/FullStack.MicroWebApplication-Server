@@ -29,6 +29,8 @@ public class BlogPost {
     @Column(name = "content", length = 666000)
     private String content;
 
+    @Lob
+    @Column(name = "recipe", length = 666000)
     private String recipe;
 
     @ManyToOne
