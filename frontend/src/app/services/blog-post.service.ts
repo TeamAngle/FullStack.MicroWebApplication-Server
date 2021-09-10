@@ -13,22 +13,22 @@ export class BlogPostService {
   constructor(private http: HttpClient) { }
 
   public getBlogPosts(): Observable<BlogPost[]> {
-    return this.http.get<BlogPost[]>(`${this.apiServerUrl}/blogPostController/read`, { responseType: 'text' as 'json' });
+    return this.http.get<BlogPost[]>(`${this.apiServerUrl}/blogPostController/read`);
   }
 
   public getBlogPost(blogPostId: number): Observable<BlogPost> {
-    return this.http.get<BlogPost>(`${this.apiServerUrl}/blogPostController/read/${blogPostId}`, { responseType: 'text' as 'json' });
+    return this.http.get<BlogPost>(`${this.apiServerUrl}/blogPostController/read/${blogPostId}`);
   }
 
   public addBlogPost(blogPost: BlogPost): Observable<BlogPost> {
-    return this.http.post<BlogPost>(`${this.apiServerUrl}/blogPostController/create`, blogPost, { responseType: 'text' as 'json' })
+    return this.http.post<BlogPost>(`${this.apiServerUrl}/blogPostController/create`, blogPost)
   }
 
   public updateBlogPost(blogPost: BlogPost, blogPostId: number): Observable<BlogPost> {
-    return this.http.put<BlogPost>(`${this.apiServerUrl}/blogPostController/update/${blogPostId}`, blogPost, { responseType: 'text' as 'json' });
+    return this.http.put<BlogPost>(`${this.apiServerUrl}/blogPostController/update/${blogPostId}`, blogPost);
   }
 
   public deleteBlogPost(blogPostId: number) : Observable<void> {
-    return this.http.delete<void>(`${this.apiServerUrl}/blogPostController/delete/${blogPostId}`, { responseType: 'text' as 'json' });
+    return this.http.delete<void>(`${this.apiServerUrl}/blogPostController/delete/${blogPostId}`);
   }
 }
