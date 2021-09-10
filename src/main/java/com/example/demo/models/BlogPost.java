@@ -30,6 +30,7 @@ public class BlogPost {
     private String content;
 
     @Lob
+    @Column(name = "recipe", length = 666000)
     private String recipe;
 
     @ManyToOne

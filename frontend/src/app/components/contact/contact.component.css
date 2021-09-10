@@ -1,0 +1,63 @@
+body {
+    display: flex;
+}
+
+.contactHeader {
+    margin-top: 20vh;
+    margin-left: 13%;
+    font-size: 6.5vh;
+    font-family: "UnJamoBatang", sans-serif;
+}
+
+.contactForm {
+    display: inline-block;
+    margin-top: -3%;
+    margin-left: 9%;
+    padding-right: 18%;
+    font-family: "UnJamoBatang", sans-serif;
+    color: rgba(66, 40, 32, 0.945);
+    background-color: rgba(248, 252, 214, 0.911);
+}
+
+.contactField {
+    margin-top: 18%;
+    margin-left: 5%;
+}
+
+label {
+    font-size: 2.5vh;
+    margin-left: 10%;
+}
+
+input {
+    margin-top: 2%;
+    margin-left: 10%;
+    height: 2.5vh;
+    width: 60%;
+    color: rgba(66, 40, 32, 0.945)
+}
+
+textarea {
+    margin-top: 2%;
+    margin-left: 10%;
+    height: 15vh;
+    width: 141%;
+    font-size: large;
+    color: rgba(66, 40, 32, 0.945);
+}
+
+.submit-button {
+    margin-top: 5%;
+    margin-left: 136%;
+    height: 3.5vh;
+    width: 8.6vh;
+    font-size: 1.7vh;
+    color: rgba(66, 40, 32, 0.945);
+}
+
+img {
+    margin-top: -5%;
+    position: relative;
+    padding-left: 18vh;
+    height: 103vh;
+}

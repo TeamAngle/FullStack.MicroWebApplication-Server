@@ -1,0 +1,54 @@
+.banner {
+    height: 50vh;
+    background: url(https://805019.smushcdn.com/1588826/wp-content/uploads/2021/03/vegan-pie-recipes-1-scaled.jpg?lossy=0&strip=1&webp=1);
+    background-size: cover;
+}
+
+h1 {
+    text-align: center;
+    padding-top: 15vh;
+    margin-top: -0.5%;
+    font-size: 9vh;
+    font-family: 'UnPenheulim', sans-serif;
+    text-shadow: -5px 0px 10px rgb(255, 250, 244);
+}
+
+body {
+    background-color: rgb(255, 250, 244);
+    position: relative;
+    margin-top: -20vh;
+    margin-left: 13%;
+    margin-right: 13%;
+}
+
+.aboutSection {
+    text-align: center;
+    margin-top: 7%;
+    margin-bottom: 4%;
+    font-size: 2vh;
+    padding-bottom: 2%;
+    font-family: 'UnJamoBatang', sans-serif;
+}
+
+.border-top {
+    position: relative;
+    bottom: -30px;
+    width: 60%;
+    left: 20%;
+    right: 10%;
+    border: 3px;
+    border-color: black;
+    border-style: solid;
+}
+
+.border-bottom {
+    position: relative;
+    top: -50px;
+    width: 60%;
+    left: 20%;
+    right: 10%;
+    border: 3px;
+    border-color: black;
+    border-style: solid;
+}
+

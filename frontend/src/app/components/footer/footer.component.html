@@ -1,0 +1,18 @@
+<style>
+    @import url('http://fonts.cdnfonts.com/css/unjamobatang');
+</style>
+<footer>
+    <nav>
+        <ul id="footernav">
+            <li> <a routerLink = "/about">About Us</a></li>
+            <li> | </li>
+            <li><a routerLink = "/contact">Contact Us</a></li>
+            <li class="logout" title="logout">
+            <button
+            (click)="onClick()">
+                {{getUserText()}}    
+            </button>
+            </li>
+        </ul>
+    </nav>
+</footer>
